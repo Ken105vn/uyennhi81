@@ -1,0 +1,1617 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Uyển Nhi's English Notebook - Getting Started</title>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Quicksand:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;1,500&display=swap" rel="stylesheet">
+<style>
+:root{
+    --pink:#F48FB1;
+    --lavender:#B39DDB;
+    --rose:#EC407A;
+    --cream:#FFF8F0;
+    --paper:#FFFBF5;
+    --ink:#3E2723;
+    --soft-pink:#FCE4EC;
+    --soft-lav:#EDE7F6;
+    --mint:#B2DFDB;
+    --peach:#FFCCBC;
+    --gold:#FFD54F;
+    --correct:#66BB6A;
+    --incorrect:#EF5350;
+    --line:#E8D5E0;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+    font-family:'Quicksand',sans-serif;
+    font-size:17px;
+    background:
+        repeating-linear-gradient(0deg, transparent, transparent 31px, #E8D5E0 31px, #E8D5E0 32px),
+        linear-gradient(135deg, #FCE4EC 0%, #EDE7F6 50%, #E0F2F1 100%);
+    background-attachment:fixed;
+    color:var(--ink);
+    min-height:100vh;
+    padding:20px;
+    position:relative;
+}
+/* Decorative sparkles */
+.sparkle{position:fixed;pointer-events:none;font-size:1.5rem;opacity:.5;animation:twinkle 4s infinite ease-in-out;z-index:0}
+@keyframes twinkle{0%,100%{opacity:.3;transform:scale(1)}50%{opacity:.8;transform:scale(1.2)}}
+.sp1{top:5%;left:3%}.sp2{top:15%;right:5%;animation-delay:1s}.sp3{bottom:20%;left:8%;animation-delay:2s}
+.sp4{top:60%;right:3%;animation-delay:1.5s}.sp5{bottom:5%;right:15%;animation-delay:3s}.sp6{top:35%;left:2%;animation-delay:2.5s}
+
+#confetti{position:fixed;top:0;left:0;width:100%;height:100%;z-index:9998;pointer-events:none}
+
+/* ====== TOP BANNER ====== */
+.top-banner{
+    max-width:1200px;
+    margin:0 auto 20px;
+    background:linear-gradient(135deg, #F8BBD0 0%, #CE93D8 100%);
+    border-radius:24px;
+    padding:20px 30px;
+    box-shadow:0 10px 40px rgba(236,64,122,.25);
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:15px;
+    position:relative;
+    overflow:hidden;
+    border:3px solid #fff;
+}
+.top-banner::before{
+    content:'';
+    position:absolute;
+    top:-50%;right:-20%;
+    width:200px;height:200px;
+    background:radial-gradient(circle, rgba(255,255,255,.4), transparent 70%);
+    border-radius:50%;
+}
+.top-banner::after{
+    content:'✿';
+    position:absolute;
+    font-size:8rem;
+    color:rgba(255,255,255,.15);
+    right:20px;top:-30px;
+    font-family:'Playfair Display',serif;
+}
+.owner-name{
+    font-family:'Caveat',cursive;
+    font-size:2.2rem;
+    font-weight:700;
+    color:#fff;
+    text-shadow:2px 2px 0 rgba(156,39,176,.3);
+    position:relative;
+    z-index:1;
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+.owner-name .avatar{
+    width:52px;height:52px;
+    background:rgba(255,255,255,.9);
+    border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    font-size:1.8rem;
+    border:3px solid #fff;
+    box-shadow:0 4px 10px rgba(0,0,0,.1);
+}
+.owner-name .sub{
+    font-size:1rem;
+    font-family:'Quicksand',sans-serif;
+    font-weight:600;
+    opacity:.9;
+    display:block;
+    margin-top:2px;
+}
+.score-box{
+    background:rgba(255,255,255,.95);
+    padding:12px 24px;
+    border-radius:20px;
+    font-weight:800;
+    color:var(--rose);
+    font-size:1.1rem;
+    box-shadow:0 6px 20px rgba(0,0,0,.1);
+    position:relative;
+    z-index:1;
+    display:flex;
+    align-items:center;
+    gap:10px;
+    border:2px dashed var(--pink);
+}
+.score-box .num{color:var(--lavender);font-size:1.3rem}
+
+/* ====== MAIN LAYOUT - SIDEBAR + CONTENT ====== */
+.main-layout{
+    max-width:1200px;
+    margin:0 auto;
+    display:grid;
+    grid-template-columns:260px 1fr;
+    gap:20px;
+    align-items:start;
+}
+
+/* Sidebar */
+.sidebar{
+    background:var(--paper);
+    border-radius:24px;
+    padding:22px;
+    box-shadow:0 8px 30px rgba(156,39,176,.12);
+    border:2px solid #fff;
+    position:sticky;
+    top:20px;
+}
+.sidebar-title{
+    font-family:'Caveat',cursive;
+    font-size:1.6rem;
+    color:var(--rose);
+    text-align:center;
+    margin-bottom:15px;
+    padding-bottom:12px;
+    border-bottom:2px dashed var(--line);
+}
+.sidebar-title .icon{font-size:1.4rem}
+
+.tab-item{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    padding:14px 16px;
+    border-radius:16px;
+    background:transparent;
+    border:2px solid transparent;
+    cursor:pointer;
+    font-family:'Quicksand',sans-serif;
+    font-size:1rem;
+    font-weight:700;
+    color:var(--ink);
+    width:100%;
+    text-align:left;
+    transition:all .3s;
+    margin-bottom:8px;
+    position:relative;
+    opacity:.6;
+}
+.tab-item:hover{
+    background:var(--soft-pink);
+    opacity:1;
+    transform:translateX(4px);
+}
+.tab-item.active{
+    background:linear-gradient(135deg, var(--pink), var(--lavender));
+    color:#fff;
+    opacity:1;
+    box-shadow:0 6px 20px rgba(244,143,177,.4);
+}
+.tab-item.completed::after{
+    content:'✓';
+    position:absolute;
+    right:10px;top:50%;
+    transform:translateY(-50%);
+    width:24px;height:24px;
+    background:var(--correct);
+    color:#fff;
+    border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    font-size:.75rem;
+    font-weight:900;
+}
+.tab-item .tab-icon{
+    width:36px;height:36px;
+    background:rgba(255,255,255,.6);
+    border-radius:10px;
+    display:flex;align-items:center;justify-content:center;
+    font-size:1.2rem;
+    flex-shrink:0;
+}
+.tab-item.active .tab-icon{background:rgba(255,255,255,.3)}
+
+.sidebar-note{
+    margin-top:15px;
+    padding:12px;
+    background:linear-gradient(135deg, #FFF9C4, #FFECB3);
+    border-radius:12px;
+    font-size:.85rem;
+    color:#7C5700;
+    font-family:'Caveat',cursive;
+    font-size:1.05rem;
+    line-height:1.5;
+    text-align:center;
+    transform:rotate(-2deg);
+    box-shadow:0 4px 10px rgba(0,0,0,.08);
+    border:1px solid #FFD54F;
+}
+
+/* Content area */
+.content-area{
+    background:var(--paper);
+    border-radius:24px;
+    padding:32px;
+    box-shadow:0 8px 30px rgba(156,39,176,.12);
+    border:2px solid #fff;
+    min-height:500px;
+    position:relative;
+}
+.content-area::before{
+    content:'';
+    position:absolute;
+    top:0;right:0;
+    width:60px;height:60px;
+    background:linear-gradient(225deg, var(--soft-pink) 50%, transparent 50%);
+    border-top-right-radius:24px;
+}
+
+.page{display:none;animation:slideUp .5s ease}
+.page.active{display:block}
+@keyframes slideUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+
+.page-header{
+    display:flex;
+    align-items:center;
+    gap:15px;
+    margin-bottom:8px;
+}
+.page-num{
+    width:60px;height:60px;
+    background:linear-gradient(135deg, var(--pink), var(--lavender));
+    color:#fff;
+    border-radius:18px;
+    display:flex;align-items:center;justify-content:center;
+    font-family:'Playfair Display',serif;
+    font-size:2rem;
+    font-weight:600;
+    transform:rotate(-4deg);
+    box-shadow:0 6px 15px rgba(236,64,122,.3);
+    flex-shrink:0;
+}
+.page-title{
+    font-family:'Playfair Display',serif;
+    font-size:1.6rem;
+    color:var(--ink);
+    font-weight:600;
+    line-height:1.2;
+}
+.page-subtitle{
+    font-family:'Caveat',cursive;
+    font-size:1.15rem;
+    color:var(--rose);
+    margin-top:2px;
+}
+
+.instruction{
+    font-size:.95rem;
+    color:#666;
+    margin:15px 0 22px;
+    padding:12px 18px;
+    background:linear-gradient(135deg, #E0F2F1, #B2DFDB);
+    border-radius:14px;
+    border-left:5px solid var(--mint);
+    font-weight:500;
+    line-height:1.6;
+}
+
+/* ====== CONVERSATION - notebook style ====== */
+.conversation{
+    background:
+        linear-gradient(90deg, transparent 40px, #FFCDD2 40px, #FFCDD2 42px, transparent 42px),
+        repeating-linear-gradient(0deg, transparent, transparent 31px, #E8D5E0 31px, #E8D5E0 32px),
+        #fff;
+    padding:25px 25px 25px 60px;
+    border-radius:12px;
+    box-shadow:0 8px 25px rgba(0,0,0,.08);
+    margin-bottom:20px;
+    position:relative;
+    border:1px solid #eee;
+}
+.conversation::before{
+    content:'✎';
+    position:absolute;
+    top:12px;right:18px;
+    font-size:1.5rem;
+    color:var(--pink);
+    transform:rotate(15deg);
+}
+.conv-line{
+    display:flex;
+    gap:14px;
+    margin-bottom:14px;
+    align-items:flex-start;
+}
+.conv-avatar{
+    width:44px;height:44px;
+    border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    font-size:1.5rem;
+    flex-shrink:0;
+    border:2px solid var(--pink);
+    background:#fff;
+    box-shadow:0 3px 8px rgba(0,0,0,.08);
+}
+.conv-avatar.nick{border-color:#64B5F6;background:#E3F2FD}
+.conv-avatar.mai{border-color:var(--pink);background:var(--soft-pink)}
+.conv-content{flex:1;padding-top:6px}
+.conv-name{
+    font-family:'Caveat',cursive;
+    font-size:1.15rem;
+    font-weight:700;
+    color:var(--rose);
+    margin-bottom:2px;
+}
+.conv-name.nick{color:#1976D2}
+.conv-text{
+    line-height:1.7;
+    font-size:1rem;
+    color:var(--ink);
+}
+.conv-text b{
+    background:linear-gradient(180deg, transparent 60%, #FFE082 60%);
+    padding:0 4px;
+    color:var(--rose);
+    font-weight:800;
+}
+
+/* ====== STICKY NOTE QUESTIONS ====== */
+.sticky-note{
+    background:linear-gradient(135deg, #FFF9C4 0%, #FFECB3 100%);
+    padding:20px 22px;
+    border-radius:6px;
+    margin-bottom:18px;
+    box-shadow:
+        0 4px 12px rgba(0,0,0,.08),
+        inset 0 -2px 4px rgba(0,0,0,.03);
+    position:relative;
+    transform:rotate(-.5deg);
+    transition:all .3s;
+}
+.sticky-note:nth-child(even){transform:rotate(.6deg);background:linear-gradient(135deg, #F8BBD0 0%, #F48FB1 100%);color:#fff}
+.sticky-note:nth-child(even) .q-text{color:#fff}
+.sticky-note:nth-child(3n){background:linear-gradient(135deg, #D1C4E9 0%, #B39DDB 100%);color:#fff}
+.sticky-note:nth-child(3n) .q-text{color:#fff}
+.sticky-note::before{
+    content:'';
+    position:absolute;
+    top:-8px;left:50%;
+    width:60px;height:16px;
+    background:rgba(255,255,255,.6);
+    transform:translateX(-50%) rotate(-3deg);
+    border-radius:2px;
+    box-shadow:0 2px 4px rgba(0,0,0,.1);
+}
+.sticky-note.correct{
+    box-shadow:0 0 0 3px var(--correct), 0 8px 20px rgba(102,187,106,.3);
+}
+.sticky-note.incorrect{
+    box-shadow:0 0 0 3px var(--incorrect), 0 8px 20px rgba(239,83,80,.3);
+}
+.q-text{
+    font-weight:700;
+    font-size:1.05rem;
+    margin-bottom:14px;
+    line-height:1.5;
+    color:var(--ink);
+    display:flex;
+    gap:8px;
+}
+.q-num{
+    font-family:'Caveat',cursive;
+    font-size:1.5rem;
+    color:var(--rose);
+    line-height:1;
+    flex-shrink:0;
+}
+.sticky-note:nth-child(even) .q-num,
+.sticky-note:nth-child(3n) .q-num{color:#fff;opacity:.9}
+
+.options{display:flex;flex-direction:column;gap:10px}
+.option-btn{
+    padding:12px 18px;
+    border:2px solid rgba(0,0,0,.1);
+    background:rgba(255,255,255,.85);
+    border-radius:14px;
+    cursor:pointer;
+    font-family:'Quicksand',sans-serif;
+    font-size:.98rem;
+    font-weight:600;
+    color:var(--ink);
+    text-align:left;
+    transition:all .25s;
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+.option-btn::before{
+    content:'';
+    width:22px;height:22px;
+    border-radius:50%;
+    border:2px solid #ccc;
+    background:#fff;
+    flex-shrink:0;
+    transition:all .2s;
+}
+.option-btn:hover{
+    transform:translateX(4px);
+    background:#fff;
+    border-color:var(--pink);
+}
+.option-btn.selected{
+    background:linear-gradient(135deg, #FCE4EC, #F8BBD0);
+    border-color:var(--rose);
+    transform:translateX(6px);
+    box-shadow:0 4px 12px rgba(236,64,122,.25);
+}
+.option-btn.selected::before{
+    background:var(--rose);
+    border-color:var(--rose);
+    box-shadow:inset 0 0 0 3px #fff;
+}
+.option-btn.correct{
+    background:linear-gradient(135deg, #C8E6C9, #A5D6A7);
+    border-color:var(--correct);
+    color:#1B5E20;
+    font-weight:700;
+}
+.option-btn.correct::before{
+    background:var(--correct);
+    border-color:var(--correct);
+    box-shadow:inset 0 0 0 3px #fff;
+}
+.option-btn.incorrect{
+    background:linear-gradient(135deg, #FFCDD2, #EF9A9A);
+    border-color:var(--incorrect);
+    color:#B71C1C;
+    animation:wiggle .4s;
+}
+.option-btn.incorrect::before{
+    background:var(--incorrect);
+    border-color:var(--incorrect);
+    box-shadow:inset 0 0 0 3px #fff;
+}
+.sticky-note[data-graded="true"] .option-btn{pointer-events:none}
+@keyframes wiggle{0%,100%{transform:translateX(0)}25%{transform:translateX(-6px)}75%{transform:translateX(6px)}}
+
+/* ====== WORD BANK - polaroid style ====== */
+.word-bank-wrap{
+    background:linear-gradient(135deg, #E1BEE7, #CE93D8);
+    padding:20px;
+    border-radius:20px;
+    margin-bottom:20px;
+    box-shadow:0 8px 25px rgba(156,39,176,.2);
+    position:relative;
+}
+.word-bank-label{
+    font-family:'Caveat',cursive;
+    font-size:1.4rem;
+    color:#fff;
+    text-align:center;
+    margin-bottom:12px;
+    text-shadow:1px 1px 2px rgba(0,0,0,.15);
+}
+.drag-pool{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+    padding:16px;
+    background:rgba(255,255,255,.5);
+    border-radius:14px;
+    min-height:70px;
+    justify-content:center;
+    backdrop-filter:blur(5px);
+}
+.drag-word{
+    background:#fff;
+    padding:10px 18px;
+    border-radius:12px;
+    cursor:grab;
+    font-weight:700;
+    color:var(--rose);
+    font-family:'Quicksand',sans-serif;
+    font-size:.95rem;
+    box-shadow:0 4px 10px rgba(0,0,0,.1);
+    transition:all .25s;
+    user-select:none;
+    touch-action:none;
+    border:2px solid transparent;
+    position:relative;
+}
+.drag-word:hover{
+    transform:translateY(-3px) rotate(-1deg);
+    box-shadow:0 8px 18px rgba(236,64,122,.25);
+}
+.drag-word.dragging{opacity:.4}
+.drag-word.correct{
+    background:linear-gradient(135deg, #C8E6C9, #A5D6A7);
+    color:#1B5E20;
+    border-color:var(--correct);
+}
+.drag-word.neutral-wrong{
+    background:linear-gradient(135deg, #FFCDD2, #EF9A9A);
+    color:#B71C1C;
+    border-color:var(--incorrect);
+}
+.drag-word[data-graded="true"]{cursor:not-allowed!important;pointer-events:none}
+
+.drag-ghost{
+    position:fixed;
+    pointer-events:none;
+    z-index:9999;
+    opacity:.95;
+    transform:rotate(4deg) scale(1.1);
+    box-shadow:0 15px 35px rgba(108,99,255,.4);
+    background:#fff;
+    padding:10px 18px;
+    border-radius:12px;
+    font-weight:700;
+    color:var(--rose);
+    font-family:'Quicksand',sans-serif;
+    border:2px solid var(--rose);
+}
+
+/* Sentence with blanks */
+.sentence-item{
+    background:#fff;
+    padding:18px 22px;
+    border-radius:14px;
+    margin-bottom:14px;
+    box-shadow:0 4px 15px rgba(0,0,0,.06);
+    line-height:2;
+    font-size:1.05rem;
+    border-left:5px solid var(--lavender);
+    transition:all .3s;
+}
+.sentence-item[data-graded="true"]{opacity:.95;border-left-color:#ccc}
+.sentence-item .num{
+    font-family:'Caveat',cursive;
+    font-size:1.4rem;
+    color:var(--rose);
+    margin-right:6px;
+    font-weight:700;
+}
+.drop-zone{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    min-width:130px;
+    min-height:38px;
+    border-bottom:3px dashed var(--lavender);
+    vertical-align:middle;
+    margin:0 6px;
+    transition:all .2s;
+    padding:0 10px;
+    background:rgba(179,157,219,.08);
+    border-radius:6px 6px 0 0;
+}
+.drop-zone.drag-over{
+    background:var(--soft-lav);
+    border-bottom-color:var(--rose);
+    transform:scale(1.05);
+}
+.drop-zone.filled{border-bottom:3px solid var(--correct)}
+.drop-zone[data-graded="true"]{border-bottom-color:#ccc;background:rgba(0,0,0,.03)}
+.drop-zone .drag-word{padding:5px 12px;font-size:.9rem;box-shadow:none}
+
+/* ====== MATCHING (Task 3) ====== */
+.match-item{
+    display:flex;
+    align-items:center;
+    gap:15px;
+    background:#fff;
+    padding:16px 20px;
+    border-radius:14px;
+    margin-bottom:12px;
+    box-shadow:0 4px 15px rgba(0,0,0,.06);
+    border-left:5px solid var(--pink);
+    transition:all .3s;
+    flex-wrap:wrap;
+}
+.match-item[data-graded="true"]{opacity:.95}
+.match-q{
+    flex:1;
+    font-weight:700;
+    font-size:1rem;
+    min-width:200px;
+}
+.match-q .icon{
+    display:inline-block;
+    margin-right:8px;
+    font-size:1.2rem;
+}
+.match-select{
+    padding:10px 18px;
+    border:2px solid var(--line);
+    border-radius:12px;
+    font-family:'Quicksand',sans-serif;
+    font-size:.95rem;
+    font-weight:700;
+    background:#fff;
+    color:var(--rose);
+    cursor:pointer;
+    transition:all .25s;
+    min-width:140px;
+}
+.match-select:focus{outline:none;border-color:var(--pink);box-shadow:0 0 0 4px rgba(244,143,177,.15)}
+.match-select.correct{
+    border-color:var(--correct);
+    background:#E8F5E9;
+    color:#1B5E20;
+}
+.match-select.incorrect{
+    border-color:var(--incorrect);
+    background:#FFEBEE;
+    color:#B71C1C;
+}
+.match-select:disabled{cursor:not-allowed;opacity:.9}
+
+/* ====== IMAGE PLACEHOLDER for Task 4 ====== */
+.image-slot{
+    width:100%;
+    height:160px;
+    background:
+        repeating-linear-gradient(45deg, #FCE4EC, #FCE4EC 10px, #F8BBD0 10px, #F8BBD0 20px);
+    border-radius:14px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+    margin-bottom:12px;
+    border:3px dashed var(--pink);
+    color:var(--rose);
+    font-family:'Caveat',cursive;
+    font-size:1.3rem;
+    font-weight:700;
+}
+.image-slot .ic{font-size:2.5rem}
+
+/* ====== BUTTONS ====== */
+.action-row{
+    display:flex;
+    justify-content:center;
+    gap:12px;
+    margin-top:28px;
+    flex-wrap:wrap;
+}
+.btn{
+    padding:14px 30px;
+    border:none;
+    border-radius:30px;
+    font-family:'Quicksand',sans-serif;
+    font-size:.98rem;
+    font-weight:800;
+    cursor:pointer;
+    transition:all .3s;
+    text-transform:uppercase;
+    letter-spacing:1px;
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    position:relative;
+    overflow:hidden;
+}
+.btn-check{
+    background:linear-gradient(135deg, var(--rose), var(--pink));
+    color:#fff;
+    box-shadow:0 6px 20px rgba(236,64,122,.4);
+}
+.btn-check:hover{transform:translateY(-3px);box-shadow:0 10px 30px rgba(236,64,122,.5)}
+.btn-check:disabled{background:linear-gradient(135deg, #BDBDBD, #9E9E9E);cursor:not-allowed;transform:none;box-shadow:none}
+.btn-next{
+    background:linear-gradient(135deg, var(--lavender), #9575CD);
+    color:#fff;
+    box-shadow:0 6px 20px rgba(179,157,219,.4);
+}
+.btn-next:hover{transform:translateY(-3px);box-shadow:0 10px 30px rgba(179,157,219,.5)}
+.btn-replay{
+    background:linear-gradient(135deg, #4DB6AC, #26A69A);
+    color:#fff;
+    box-shadow:0 6px 20px rgba(77,182,172,.4);
+}
+.btn-replay:hover{transform:translateY(-3px);box-shadow:0 10px 30px rgba(77,182,172,.5)}
+
+/* ====== FEEDBACK ====== */
+.feedback{
+    margin-top:20px;
+    padding:18px 22px;
+    border-radius:16px;
+    font-weight:700;
+    font-size:1rem;
+    display:none;
+    line-height:1.7;
+    text-align:center;
+}
+.feedback.success{
+    display:block;
+    background:linear-gradient(135deg, #E8F5E9, #C8E6C9);
+    color:#1B5E20;
+    border:2px solid var(--correct);
+    animation:pop .5s;
+}
+.feedback.info{
+    display:block;
+    background:linear-gradient(135deg, #FFF8E1, #FFECB3);
+    color:#7C5700;
+    border:2px solid var(--gold);
+    animation:pop .5s;
+}
+.feedback.error{
+    display:block;
+    background:linear-gradient(135deg, #FFEBEE, #FFCDD2);
+    color:#B71C1C;
+    border:2px solid var(--incorrect);
+    animation:wiggle .5s;
+}
+@keyframes pop{0%{transform:scale(1)}50%{transform:scale(1.05)}100%{transform:scale(1)}}
+
+.lock-note{
+    display:none;
+    margin-top:14px;
+    padding:12px 18px;
+    border-radius:12px;
+    background:linear-gradient(135deg, #FFF3E0, #FFE0B2);
+    border:2px dashed #FF9800;
+    color:#E65100;
+    font-family:'Caveat',cursive;
+    font-size:1.15rem;
+    text-align:center;
+}
+.lock-note.show{display:block}
+
+/* ====== EVALUATION ====== */
+.evaluation{
+    margin-top:25px;
+    padding:30px;
+    border-radius:24px;
+    background:linear-gradient(135deg, #F48FB1 0%, #B39DDB 100%);
+    color:#fff;
+    text-align:center;
+    display:none;
+    animation:pop .6s;
+    box-shadow:0 15px 45px rgba(179,157,219,.4);
+    position:relative;
+    overflow:hidden;
+}
+.evaluation::before{
+    content:'✦';
+    position:absolute;
+    top:10px;left:20px;
+    font-size:3rem;
+    opacity:.2;
+    color:#fff;
+}
+.evaluation::after{
+    content:'✿';
+    position:absolute;
+    bottom:10px;right:20px;
+    font-size:3rem;
+    opacity:.2;
+}
+.evaluation.show{display:block}
+.eval-title{
+    font-family:'Playfair Display',serif;
+    font-size:1.6rem;
+    margin-bottom:12px;
+    font-weight:600;
+}
+.eval-emoji{font-size:3rem;margin-bottom:8px}
+.eval-score{
+    font-size:1.15rem;
+    margin-bottom:8px;
+    font-weight:600;
+}
+.eval-grade{
+    font-family:'Caveat',cursive;
+    font-size:4rem;
+    font-weight:700;
+    color:#FFE082;
+    text-shadow:2px 2px 0 rgba(0,0,0,.15);
+    margin:10px 0;
+}
+.eval-message{
+    font-size:1.1rem;
+    margin-bottom:20px;
+    font-weight:500;
+}
+.eval-breakdown{
+    background:rgba(255,255,255,.2);
+    border-radius:14px;
+    padding:16px;
+    font-size:.95rem;
+    line-height:1.9;
+    font-weight:600;
+    backdrop-filter:blur(8px);
+    border:2px solid rgba(255,255,255,.3);
+}
+
+/* ====== MODAL / POPUP ====== */
+.modal-overlay{
+    position:fixed;
+    inset:0;
+    background:rgba(62,39,35,.6);
+    backdrop-filter:blur(6px);
+    z-index:10000;
+    display:none;
+    align-items:center;
+    justify-content:center;
+    padding:20px;
+}
+.modal-overlay.show{display:flex;animation:fadeIn .3s}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+
+.welcome-box{
+    background:linear-gradient(135deg, #FFF8F0 0%, #FCE4EC 100%);
+    border-radius:28px;
+    padding:40px 35px;
+    max-width:480px;
+    width:100%;
+    text-align:center;
+    box-shadow:0 30px 80px rgba(0,0,0,.4);
+    border:4px solid #fff;
+    position:relative;
+    animation:pop .5s;
+}
+.welcome-box::before{
+    content:'✿';
+    position:absolute;
+    top:-25px;left:50%;
+    transform:translateX(-50%);
+    width:50px;height:50px;
+    background:linear-gradient(135deg, var(--pink), var(--lavender));
+    color:#fff;
+    border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    font-size:1.8rem;
+    border:4px solid #fff;
+    box-shadow:0 8px 20px rgba(244,143,177,.4);
+}
+.welcome-box .hello{
+    font-family:'Caveat',cursive;
+    font-size:2rem;
+    color:var(--rose);
+    margin-bottom:8px;
+    margin-top:10px;
+}
+.welcome-box h2{
+    font-family:'Playfair Display',serif;
+    font-size:1.3rem;
+    color:var(--ink);
+    margin-bottom:15px;
+    font-weight:600;
+}
+.welcome-box p{
+    color:#666;
+    font-size:.95rem;
+    line-height:1.7;
+    margin-bottom:22px;
+}
+.welcome-box .quote{
+    background:#fff;
+    padding:14px 18px;
+    border-radius:14px;
+    border-left:4px solid var(--pink);
+    font-family:'Caveat',cursive;
+    font-size:1.15rem;
+    color:var(--rose);
+    margin-bottom:22px;
+    text-align:left;
+    box-shadow:0 4px 12px rgba(0,0,0,.05);
+}
+.welcome-box button{
+    width:100%;
+    padding:16px;
+    background:linear-gradient(135deg, var(--rose), var(--pink));
+    color:#fff;
+    border:none;
+    border-radius:16px;
+    font-family:'Quicksand',sans-serif;
+    font-size:1.05rem;
+    font-weight:800;
+    cursor:pointer;
+    transition:all .3s;
+    letter-spacing:1px;
+    box-shadow:0 8px 25px rgba(236,64,122,.4);
+}
+.welcome-box button:hover{transform:translateY(-3px);box-shadow:0 12px 30px rgba(236,64,122,.6)}
+
+/* Toast */
+.toast{
+    position:fixed;
+    top:30px;
+    left:50%;
+    transform:translateX(-50%) translateY(-100px);
+    background:linear-gradient(135deg, var(--rose), var(--pink));
+    color:#fff;
+    padding:14px 28px;
+    border-radius:30px;
+    font-weight:800;
+    font-size:1rem;
+    box-shadow:0 10px 30px rgba(236,64,122,.5);
+    z-index:10001;
+    transition:transform .5s cubic-bezier(.34,1.56,.64,1);
+    display:flex;
+    align-items:center;
+    gap:10px;
+    border:3px solid #fff;
+}
+.toast.show{transform:translateX(-50%) translateY(0)}
+
+/* Responsive */
+@media (max-width:900px){
+    .main-layout{grid-template-columns:1fr}
+    .sidebar{position:static;display:flex;flex-wrap:wrap;gap:8px}
+    .sidebar-title{width:100%;margin-bottom:8px}
+    .tab-item{flex:1;min-width:140px;margin-bottom:0}
+    .sidebar-note{width:100%;margin-top:8px}
+}
+@media (max-width:600px){
+    body{padding:10px}
+    .content-area{padding:20px}
+    .top-banner{padding:15px 20px}
+    .owner-name{font-size:1.7rem}
+    .owner-name .avatar{width:42px;height:42px;font-size:1.4rem}
+    .page-title{font-size:1.2rem}
+    .page-num{width:48px;height:48px;font-size:1.5rem}
+    .btn{padding:12px 22px;font-size:.85rem}
+    .sticky-note{padding:16px}
+    .q-text{font-size:.95rem}
+    .option-btn{font-size:.9rem;padding:10px 14px}
+    .conversation{padding:18px 15px 18px 45px}
+}
+</style>
+</head>
+<body>
+
+<canvas id="confetti"></canvas>
+
+<!-- Sparkle decorations -->
+<div class="sparkle sp1">✨</div>
+<div class="sparkle sp2">🌸</div>
+<div class="sparkle sp3">💫</div>
+<div class="sparkle sp4">🌷</div>
+<div class="sparkle sp5">✨</div>
+<div class="sparkle sp6">🦋</div>
+
+<!-- Toast -->
+<div class="toast" id="toast"><span>🏆</span><span id="toastText">Hoàn thành!</span></div>
+
+<!-- Welcome modal -->
+<div class="modal-overlay show" id="welcomeModal">
+    <div class="welcome-box">
+        <div class="hello">Hi there! 👋</div>
+        <h2>Sổ Tay Tiếng Anh Của Uyển Nhi</h2>
+        <div class="quote">
+            "Học mỗi ngày một chút, rồi một ngày bạn sẽ giỏi hơn bạn của hôm qua." 🌸
+        </div>
+        <p>Bài học hôm nay: <b>Unit 2 - Getting Started</b><br>Life in the Countryside 🌾</p>
+        <button onclick="closeWelcome()">Bắt đầu học thôi! 🌷</button>
+    </div>
+</div>
+
+<!-- Top banner -->
+<div class="top-banner">
+    <div class="owner-name">
+        <div class="avatar">👩‍🎓</div>
+        <div>
+            Uyển Nhi
+            <span class="sub">📖 English Notebook • Unit 2</span>
+        </div>
+    </div>
+    <div class="score-box">
+        <span>🌸 Điểm của bạn:</span>
+        <span class="num" id="scoreDisplay">0 / 117</span>
+    </div>
+</div>
+
+<div class="main-layout">
+    <!-- SIDEBAR NAV -->
+    <aside class="sidebar">
+        <div class="sidebar-title"><span class="icon">📚</span> Mục lục</div>
+        <button class="tab-item active" data-task="1" onclick="switchPage('task1', this)">
+            <span class="tab-icon">📖</span>
+            <span>Bài đọc</span>
+        </button>
+        <button class="tab-item" data-task="2" onclick="switchPage('task2', this)">
+            <span class="tab-icon">✏️</span>
+            <span>Điền từ</span>
+        </button>
+        <button class="tab-item" data-task="3" onclick="switchPage('task3', this)">
+            <span class="tab-icon">🔗</span>
+            <span>Nối cặp</span>
+        </button>
+        <button class="tab-item" data-task="4" onclick="switchPage('task4', this)">
+            <span class="tab-icon">🗣️</span>
+            <span>Luyện nói</span>
+        </button>
+        <div class="sidebar-note">
+            🌷 Nhớ bấm "Check" sau khi làm xong mỗi bài nhé!
+        </div>
+    </aside>
+
+    <!-- CONTENT -->
+    <main class="content-area">
+
+        <!-- TASK 1: Reading + MC -->
+        <section id="task1" class="page active">
+            <div class="page-header">
+                <div class="page-num">1</div>
+                <div>
+                    <div class="page-title">Bài đọc & Câu hỏi</div>
+                    <div class="page-subtitle">Reading & Comprehension</div>
+                </div>
+            </div>
+
+            <div class="instruction">
+                📖 Đọc đoạn hội thoại giữa Nick và Mai, sau đó chọn đáp án đúng cho mỗi câu hỏi bên dưới.
+            </div>
+
+            <div class="conversation">
+                <div class="conv-line">
+                    <div class="conv-avatar nick">👦</div>
+                    <div class="conv-content">
+                        <div class="conv-name nick">Nick</div>
+                        <div class="conv-text">You look great with a tan, Mai!</div>
+                    </div>
+                </div>
+                <div class="conv-line">
+                    <div class="conv-avatar mai">👧</div>
+                    <div class="conv-content">
+                        <div class="conv-name mai">Mai</div>
+                        <div class="conv-text">Thank you. I've just come back from a very enjoyable summer holiday.</div>
+                    </div>
+                </div>
+                <div class="conv-line">
+                    <div class="conv-avatar nick">👦</div>
+                    <div class="conv-content">
+                        <div class="conv-name nick">Nick</div>
+                        <div class="conv-text">Really? Where did you stay?</div>
+                    </div>
+                </div>
+                <div class="conv-line">
+                    <div class="conv-avatar mai">👧</div>
+                    <div class="conv-content">
+                        <div class="conv-name mai">Mai</div>
+                        <div class="conv-text">I stayed at my uncle's house in a small village in <b>Bac Ninh Province</b>.</div>
+                    </div>
+                </div>
+                <div class="conv-line">
+                    <div class="conv-avatar nick">👦</div>
+                    <div class="conv-content">
+                        <div class="conv-name nick">Nick</div>
+                        <div class="conv-text">What did you do there?</div>
+                    </div>
+                </div>
+                <div class="conv-line">
+                    <div class="conv-avatar mai">👧</div>
+                    <div class="conv-content">
+                        <div class="conv-name mai">Mai</div>
+                        <div class="conv-text">A lot of things. It was harvest time. The villagers were harvesting rice with a <b>combine harvester</b>. I helped them load the rice onto a truck. Then we unloaded the rice and dried it.</div>
+                    </div>
+                </div>
+                <div class="conv-line">
+                    <div class="conv-avatar nick">👦</div>
+                    <div class="conv-content">
+                        <div class="conv-name nick">Nick</div>
+                        <div class="conv-text">Sounds great!</div>
+                    </div>
+                </div>
+                <div class="conv-line">
+                    <div class="conv-avatar mai">👧</div>
+                    <div class="conv-content">
+                        <div class="conv-name mai">Mai</div>
+                        <div class="conv-text">And sometimes I went with the village children to <b>herd the buffaloes and cows</b>. I made friends with them on my first day.</div>
+                    </div>
+                </div>
+                <div class="conv-line">
+                    <div class="conv-avatar nick">👦</div>
+                    <div class="conv-content">
+                        <div class="conv-name nick">Nick</div>
+                        <div class="conv-text">Were they friendly?</div>
+                    </div>
+                </div>
+                <div class="conv-line">
+                    <div class="conv-avatar mai">👧</div>
+                    <div class="conv-content">
+                        <div class="conv-name mai">Mai</div>
+                        <div class="conv-text">Yes, they were. They took me to the paddy fields to fly kites. And in the evening, we played traditional games like <b>bamboo dancing and dragon-snake</b>.</div>
+                    </div>
+                </div>
+                <div class="conv-line">
+                    <div class="conv-avatar nick">👦</div>
+                    <div class="conv-content">
+                        <div class="conv-name nick">Nick</div>
+                        <div class="conv-text">Oh, I envy you!</div>
+                    </div>
+                </div>
+                <div class="conv-line">
+                    <div class="conv-avatar mai">👧</div>
+                    <div class="conv-content">
+                        <div class="conv-name mai">Mai</div>
+                        <div class="conv-text">Things move more slowly there than in our city, but people seem to have a healthier life.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="task1-mc"></div>
+
+            <div class="action-row">
+                <button class="btn btn-check" onclick="checkTask1()">✅ Kiểm tra</button>
+                <button class="btn btn-next" onclick="goNextTask(1)">Tiếp theo →</button>
+            </div>
+            <div class="feedback" id="feedback1"></div>
+            <div class="lock-note" id="lock1">🔒 Bài đã chấm xong. Bấm "Chơi lại" ở bài cuối để làm lại từ đầu nhé!</div>
+        </section>
+
+        <!-- TASK 2: Drag drop -->
+        <section id="task2" class="page">
+            <div class="page-header">
+                <div class="page-num">2</div>
+                <div>
+                    <div class="page-title">Điền từ vào chỗ trống</div>
+                    <div class="page-subtitle">Fill in the Blanks</div>
+                </div>
+            </div>
+
+            <div class="instruction">
+                ✏️ Kéo thả từ trong Word Bank vào đúng chỗ trống trong câu. Bấm "Kiểm tra" để chấm từng câu.
+            </div>
+
+            <div class="word-bank-wrap">
+                <div class="word-bank-label">🌷 Word Bank 🌷</div>
+                <div class="drag-pool" id="drag-pool-task2"></div>
+            </div>
+
+            <div id="task2-sentences"></div>
+
+            <div class="action-row">
+                <button class="btn btn-check" onclick="checkTask2()">✅ Kiểm tra</button>
+                <button class="btn btn-next" onclick="goNextTask(2)">Tiếp theo →</button>
+            </div>
+            <div class="feedback" id="feedback2"></div>
+            <div class="lock-note" id="lock2">🔒 Bài đã chấm xong. Bấm "Chơi lại" ở bài cuối để làm lại từ đầu nhé!</div>
+        </section>
+
+        <!-- TASK 3: Matching -->
+        <section id="task3" class="page">
+            <div class="page-header">
+                <div class="page-num">3</div>
+                <div>
+                    <div class="page-title">Nối hoạt động với hình</div>
+                    <div class="page-subtitle">Matching Activities</div>
+                </div>
+            </div>
+
+            <div class="instruction">
+                🔗 Chọn chữ cái (a-f) tương ứng với từng hoạt động của người dân nông thôn.
+            </div>
+
+            <div id="task3-book"></div>
+
+            <div class="action-row">
+                <button class="btn btn-check" onclick="checkTask3()">✅ Kiểm tra</button>
+                <button class="btn btn-next" onclick="goNextTask(3)">Tiếp theo →</button>
+            </div>
+            <div class="feedback" id="feedback3"></div>
+            <div class="lock-note" id="lock3">🔒 Bài đã chấm xong. Bấm "Chơi lại" ở bài cuối để làm lại từ đầu nhé!</div>
+        </section>
+
+        <!-- TASK 4: Speaking -->
+        <section id="task4" class="page">
+            <div class="page-header">
+                <div class="page-num">4</div>
+                <div>
+                    <div class="page-title">Luyện nói theo cặp</div>
+                    <div class="page-subtitle">Speaking Practice</div>
+                </div>
+            </div>
+
+            <div class="instruction">
+                🗣️ Quan sát hình và chọn đáp án đúng cho câu hỏi "What are they doing in picture X?"
+            </div>
+
+            <div class="conversation" style="margin-bottom:20px">
+                <div class="conv-line">
+                    <div class="conv-avatar nick">👦</div>
+                    <div class="conv-content">
+                        <div class="conv-name nick">A</div>
+                        <div class="conv-text">What are they doing in picture a?</div>
+                    </div>
+                </div>
+                <div class="conv-line">
+                    <div class="conv-avatar mai">👧</div>
+                    <div class="conv-content">
+                        <div class="conv-name mai">B</div>
+                        <div class="conv-text">They're ploughing a field.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="task4-book"></div>
+
+            <div class="action-row">
+                <button class="btn btn-check" onclick="checkTask4()">✅ Kiểm tra</button>
+                <button class="btn btn-replay" onclick="showEvaluation()">🌸 Xem kết quả</button>
+                <button class="btn btn-replay" onclick="replayAll()">🔄 Chơi lại</button>
+            </div>
+            <div class="feedback" id="feedback4"></div>
+            <div class="lock-note" id="lock4">🔒 Đã chấm xong. Bấm "Chơi lại" để làm lại từ đầu nhé!</div>
+            <div class="evaluation" id="evaluation"></div>
+        </section>
+
+    </main>
+</div>
+
+<script>
+// ============= HELPERS =============
+function shuffleArray(a){const arr=[...a];for(let i=arr.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[arr[i],arr[j]]=[arr[j],arr[i]]}return arr}
+function isPointInRect(x,y,r){return x>=r.left&&x<=r.right&&y>=r.top&&y<=r.bottom}
+
+// ============= CONFETTI =============
+const cc=document.getElementById('confetti'),cctx=cc.getContext('2d');let pieces=[];
+function resizeC(){cc.width=innerWidth;cc.height=innerHeight}
+addEventListener('resize',resizeC);resizeC();
+function fireConfetti(){const colors=['#F48FB1','#B39DDB','#FFD54F','#4DB6AC','#FF8A65','#BA68C8'];for(let i=0;i<140;i++){pieces.push({x:Math.random()*cc.width,y:-20-Math.random()*100,w:Math.random()*12+6,h:Math.random()*8+4,color:colors[Math.floor(Math.random()*colors.length)],vx:(Math.random()-.5)*4,vy:Math.random()*4+2,rot:Math.random()*360,rs:(Math.random()-.5)*12,life:1,shape:Math.random()>0.5?'circle':'rect'})}animateC()}
+function animateC(){cctx.clearRect(0,0,cc.width,cc.height);pieces=pieces.filter(p=>p.life>0);pieces.forEach(p=>{p.x+=p.vx;p.y+=p.vy;p.vy+=.12;p.rot+=p.rs;p.life-=.004;cctx.save();cctx.translate(p.x,p.y);cctx.rotate(p.rot*Math.PI/180);cctx.fillStyle=p.color;cctx.globalAlpha=p.life;if(p.shape==='circle'){cctx.beginPath();cctx.arc(0,0,p.w/2,0,Math.PI*2);cctx.fill()}else{cctx.fillRect(-p.w/2,-p.h/2,p.w,p.h)}cctx.restore()});if(pieces.length>0)requestAnimationFrame(animateC);else cctx.clearRect(0,0,cc.width,cc.height)}
+
+// ============= SOUND =============
+let soundOn=true,actx=null;
+function getCtx(){if(!actx){try{actx=new (window.AudioContext||window.webkitAudioContext)()}catch(e){}}return actx}
+function tone(f,d,t='sine',v=.12){if(!soundOn)return;const ctx=getCtx();if(!ctx)return;const o=ctx.createOscillator(),g=ctx.createGain();o.type=t;o.frequency.value=f;g.gain.value=v;o.connect(g);g.connect(ctx.destination);const n=ctx.currentTime;g.gain.setValueAtTime(v,n);g.gain.exponentialRampToValueAtTime(.001,n+d);o.start(n);o.stop(n+d)}
+function sCorrect(){tone(659.25,.15);setTimeout(()=>tone(783.99,.15),100);setTimeout(()=>tone(987.77,.25),200)}
+function sWrong(){tone(277.18,.2,'triangle',.1);setTimeout(()=>tone(220,.3,'triangle',.1),150)}
+function sClick(){tone(880,.05,'sine',.06)}
+function sAchieve(){[659.25,783.99,987.77,1174.66].forEach((f,i)=>setTimeout(()=>tone(f,.3,'sine',.12),i*110))}
+
+// ============= DATA =============
+const T1_MC = [
+    { q: "How does Mai feel about her summer holiday?", opts: ["She likes it.", "She doesn't like it.", "She thinks it was fine."], ans: "She likes it." },
+    { q: "Where did she stay during her summer holiday?", opts: ["At her friend's house.", "At her uncle's house.", "At her grandparents' house."], ans: "At her uncle's house." },
+    { q: "During harvest time, people harvest rice by ___.", opts: ["themselves", "using a truck", "using a combine harvester"], ans: "using a combine harvester" },
+    { q: "Mai thinks people in the countryside lead ___.", opts: ["a healthy life", "an exciting life", "an interesting life"], ans: "a healthy life" }
+];
+
+const T2_SENTENCES = [
+    { q: "It took them an hour to ___ all the goods onto the truck.", ans: "load" },
+    { q: "Nowadays, people in my village use a ___ to harvest their rice and separate the grains from the rest of the plant.", ans: "combine harvester" },
+    { q: "Today it is my turn to ___ the cows.", ans: "herd" },
+    { q: "A place in which people grow rice is called a ___.", ans: "paddy field" },
+    { q: "A busy time when people cut and gather their crops is called ___.", ans: "harvest time" }
+];
+const T2_WORDS = ["paddy field", "harvest time", "herd", "load", "combine harvester"];
+
+const T3_BOOK = [
+    { q: "unloading rice", ans: "b", icon: "🚛" },
+    { q: "ploughing a field", ans: "a", icon: "🐃" },
+    { q: "milking cows", ans: "c", icon: "🐄" },
+    { q: "feeding pigs", ans: "d", icon: "🐷" },
+    { q: "catching fish", ans: "e", icon: "🐟" },
+    { q: "drying rice", ans: "f", icon: "🌾" }
+];
+const T3_LETTERS = ["a", "b", "c", "d", "e", "f"];
+
+const T4_BOOK = [
+    { q: "What are they doing in picture a?", opts: ["ploughing a field", "loading rice", "drying rice"], ans: "ploughing a field", pic: "a" },
+    { q: "What are they doing in picture b?", opts: ["unloading rice", "milking cows", "feeding pigs"], ans: "unloading rice", pic: "b" },
+    { q: "What are they doing in picture c?", opts: ["milking cows", "ploughing a field", "catching fish"], ans: "milking cows", pic: "c" },
+    { q: "What are they doing in picture d?", opts: ["feeding pigs", "drying rice", "herding buffaloes"], ans: "feeding pigs", pic: "d" },
+    { q: "What are they doing in picture e?", opts: ["catching fish", "unloading rice", "ploughing a field"], ans: "catching fish", pic: "e" },
+    { q: "What are they doing in picture f?", opts: ["drying rice", "milking cows", "feeding pigs"], ans: "drying rice", pic: "f" }
+];
+
+// ============= STATE =============
+let task1Data=[],task2Data=[],task3Data=[],task4Data=[];
+let taskScores={task1:0,task2:0,task3:0,task4:0};
+let draggedWord2=null,dragGhost2=null,ghostOffset2={x:0,y:0};
+
+function getTotalScore(){return Object.values(taskScores).reduce((a,b)=>a+b,0)}
+function updateTotalScore(){
+    document.getElementById('scoreDisplay').textContent=`${getTotalScore()} / 117`;
+}
+
+// ============= NAVIGATION =============
+function switchPage(id,btn){
+    sClick();
+    document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+    document.querySelectorAll('.tab-item').forEach(b=>b.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    if(btn)btn.classList.add('active');
+    else{const n=id.replace('task','');const bs=document.querySelectorAll('.tab-item');if(bs[n-1])bs[n-1].classList.add('active')}
+    window.scrollTo({top:0,behavior:'smooth'});
+}
+function goNextTask(n){if(n<4)switchPage('task'+(n+1),null)}
+function replayAll(){[1,2,3,4].forEach(n=>unlockTask(n));taskScores={task1:0,task2:0,task3:0,task4:0};updateTotalScore();[1,2,3,4].forEach(n=>{const f=document.getElementById('feedback'+n);if(f){f.className='feedback';f.innerHTML=''}});document.getElementById('evaluation').classList.remove('show');renderAll();switchPage('task1',null)}
+const lockedState={task1:false,task2:false,task3:false,task4:false};
+function lockTask(n){lockedState['task'+n]=true;const p=document.getElementById('task'+n);if(p)p.classList.add('locked');const cb=p?p.querySelector('.btn-check'):null;if(cb){cb.disabled=true;cb.textContent='🔒 Đã khóa'}const ln=document.getElementById('lock'+n);if(ln)ln.classList.add('show');const nb=document.querySelector(`.tab-item[data-task="${n}"]`);if(nb)nb.classList.add('completed')}
+function unlockTask(n){lockedState['task'+n]=false;const p=document.getElementById('task'+n);if(p)p.classList.remove('locked');const cb=p?p.querySelector('.btn-check'):null;if(cb){cb.disabled=false;cb.textContent='✅ Kiểm tra'}const ln=document.getElementById('lock'+n);if(ln)ln.classList.remove('show');const nb=document.querySelector(`.tab-item[data-task="${n}"]`);if(nb)nb.classList.remove('completed')}
+function showToast(t){const el=document.getElementById('toast');document.getElementById('toastText').textContent=t;el.classList.add('show');sAchieve();setTimeout(()=>el.classList.remove('show'),3500)}
+function showFB(id,type,msg){const fb=document.getElementById(id);if(!fb)return;fb.innerHTML=msg;fb.className='feedback '+type}
+
+// ============= WELCOME =============
+function closeWelcome(){
+    document.getElementById('welcomeModal').classList.remove('show');
+    sAchieve();fireConfetti();
+}
+
+// ============= RENDER =============
+function renderAll(){
+    task1Data=shuffleArray(T1_MC).map(item=>({...item,opts:shuffleArray(item.opts)}));
+    renderTask1();
+    task2Data=T2_SENTENCES;
+    renderTask2();
+    task3Data=T3_BOOK;
+    renderTask3();
+    task4Data=T4_BOOK;
+    renderTask4();
+}
+
+// ============= TASK 1 =============
+function renderTask1(){
+    const c=document.getElementById('task1-mc');c.innerHTML='';
+    task1Data.forEach((item,i)=>{
+        const note=document.createElement('div');
+        note.className='sticky-note';
+        note.dataset.ans=item.ans;
+        note.innerHTML=`<div class="q-text"><span class="q-num">${i+1}.</span><span>${item.q}</span></div>`;
+        const opts=document.createElement('div');opts.className='options';
+        item.opts.forEach(opt=>{
+            const btn=document.createElement('button');
+            btn.className='option-btn';
+            btn.textContent=opt;
+            btn.dataset.val=opt;
+            btn.onclick=function(){
+                if(note.dataset.graded==='true')return;
+                opts.querySelectorAll('.option-btn').forEach(x=>x.classList.remove('selected'));
+                this.classList.add('selected');
+                sClick();
+            };
+            opts.appendChild(btn);
+        });
+        note.appendChild(opts);c.appendChild(note);
+    });
+}
+
+function checkTask1(){
+    if(lockedState.task1)return;
+    let newly=0,correct=0,total=task1Data.length;
+    document.querySelectorAll('#task1-mc .sticky-note').forEach((note,i)=>{
+        if(note.dataset.graded==='true'){if(note.dataset.correct==='true')correct++;return}
+        const sel=note.querySelector('.option-btn.selected');
+        if(!sel)return;
+        const a=note.dataset.ans;sel.classList.remove('selected');
+        if(sel.dataset.val===a){sel.classList.add('correct');note.dataset.correct='true';note.classList.add('correct');correct++}
+        else{sel.classList.add('incorrect');note.dataset.correct='false';note.classList.add('incorrect');note.querySelectorAll('.option-btn').forEach(x=>{if(x.dataset.val===a)x.classList.add('correct')})}
+        note.dataset.graded='true';newly++;
+    });
+    if(newly===0){showFB('feedback1','error','🌸 Bạn chưa chọn đáp án nào. Hãy chọn ít nhất 1 câu rồi kiểm tra nhé!');sWrong();return}
+    const score=correct*5;taskScores.task1=score;updateTotalScore();
+    const graded=document.querySelectorAll('#task1-mc .sticky-note[data-graded="true"]').length;
+    let msg=`<div>🎯 Bạn làm đúng <b>${correct}/${total}</b> câu! (${score} điểm)</div>`;
+    if(graded===total){
+        if(correct===total){msg='🎉 '+msg+'<div>✨ Xuất sắc! Bạn giỏi quá đi! ✨</div>';showFB('feedback1','success',msg);fireConfetti();showToast('Task 1 hoàn hảo! +'+score+'đ')}
+        else showFB('feedback1','info',msg+'<div>✅ Đã chấm hết Task 1!</div>');
+        lockTask(1);sCorrect();
+    }else{msg+=`<div style="margin-top:6px;">📝 Còn ${total-graded} câu chưa làm!</div>`;showFB('feedback1','info',msg);sCorrect()}
+}
+
+// ============= TASK 2 =============
+function renderTask2(){
+    const pool=document.getElementById('drag-pool-task2');pool.innerHTML='';
+    shuffleArray(T2_WORDS).forEach(w=>{
+        const d=document.createElement('div');d.className='drag-word';d.textContent=w;d.dataset.word=w;
+        d.addEventListener('pointerdown',onWord2Down);
+        pool.appendChild(d);
+    });
+    const cont=document.getElementById('task2-sentences');cont.innerHTML='';
+    task2Data.forEach((item,i)=>{
+        const div=document.createElement('div');div.className='sentence-item';
+        const parts=item.q.split('___');
+        div.innerHTML=`<span class="num">${i+1}.</span><span>${parts[0]}</span>`;
+        const dz=document.createElement('span');dz.className='drop-zone';dz.dataset.ans=item.ans;
+        div.appendChild(dz);
+        div.innerHTML+=`<span>${parts[1]}</span>`;
+        cont.appendChild(div);
+    });
+}
+
+function onWord2Down(e){
+    if(lockedState.task2)return;
+    if(this.dataset.graded==='true')return;
+    e.preventDefault();e.stopPropagation();
+    draggedWord2=this;this.classList.add('dragging');
+    dragGhost2=document.createElement('div');dragGhost2.className='drag-ghost';dragGhost2.textContent=this.textContent;
+    document.body.appendChild(dragGhost2);
+    const r=this.getBoundingClientRect();ghostOffset2.x=e.clientX-r.left;ghostOffset2.y=e.clientY-r.top;
+    moveGhost2(e.clientX,e.clientY);
+    document.addEventListener('pointermove',onWord2Move);
+    document.addEventListener('pointerup',onWord2Up);
+    document.addEventListener('pointercancel',onWord2Up);
+}
+function moveGhost2(x,y){if(!dragGhost2)return;dragGhost2.style.left=(x-ghostOffset2.x)+'px';dragGhost2.style.top=(y-ghostOffset2.y)+'px'}
+function findDropZoneAt(x,y){const z=document.querySelectorAll('#task2-sentences .drop-zone');for(let i=0;i<z.length;i++){const r=z[i].getBoundingClientRect();if(isPointInRect(x,y,r))return z[i]}return null}
+function onWord2Move(e){
+    if(!draggedWord2)return;moveGhost2(e.clientX,e.clientY);
+    const dz=findDropZoneAt(e.clientX,e.clientY);
+    document.querySelectorAll('#task2-sentences .drop-zone').forEach(z=>z.classList.remove('drag-over'));
+    if(dz)dz.classList.add('drag-over');
+}
+function onWord2Up(e){
+    document.removeEventListener('pointermove',onWord2Move);
+    document.removeEventListener('pointerup',onWord2Up);
+    document.removeEventListener('pointercancel',onWord2Up);
+    document.querySelectorAll('#task2-sentences .drop-zone').forEach(z=>z.classList.remove('drag-over'));
+    if(dragGhost2){dragGhost2.remove();dragGhost2=null}
+    if(!draggedWord2)return;
+    const pool=document.getElementById('drag-pool-task2');
+    const pr=pool.getBoundingClientRect();
+    const dz=findDropZoneAt(e.clientX,e.clientY);
+    const inPool=isPointInRect(e.clientX,e.clientY,pr);
+    if(dz){
+        if(dz.dataset.graded==='true'){draggedWord2.classList.remove('dragging');draggedWord2=null;return}
+        const ex=dz.querySelector('.drag-word');
+        if(ex&&ex!==draggedWord2){pool.appendChild(ex);ex.classList.remove('correct','neutral-wrong')}
+        dz.appendChild(draggedWord2);draggedWord2.classList.remove('correct','neutral-wrong');
+    }else if(inPool){
+        pool.appendChild(draggedWord2);draggedWord2.classList.remove('correct','neutral-wrong');
+    }
+    document.querySelectorAll('#task2-sentences .drop-zone').forEach(z=>{if(z.querySelector('.drag-word'))z.classList.add('filled');else z.classList.remove('filled')});
+    draggedWord2.classList.remove('dragging');draggedWord2=null;
+}
+
+function checkTask2(){
+    if(lockedState.task2)return;
+    let newly=0,correct=0,total=task2Data.length;
+    document.querySelectorAll('#task2-sentences .drop-zone').forEach(zone=>{
+        if(zone.dataset.graded==='true'){if(zone.dataset.correct==='true')correct++;return}
+        const w=zone.querySelector('.drag-word');
+        if(!w)return;
+        w.classList.remove('correct','neutral-wrong');
+        if(w.dataset.word===zone.dataset.ans){w.classList.add('correct');zone.dataset.correct='true';correct++}
+        else{w.classList.add('neutral-wrong');zone.dataset.correct='false'}
+        w.dataset.graded='true';zone.dataset.graded='true';newly++;
+    });
+    if(newly===0){showFB('feedback2','error','🌸 Bạn chưa điền câu nào. Hãy kéo thả ít nhất 1 từ rồi kiểm tra nhé!');sWrong();return}
+    const score=correct*5;taskScores.task2=score;updateTotalScore();
+    const graded=document.querySelectorAll('#task2-sentences .drop-zone[data-graded="true"]').length;
+    let msg=`<div>🎯 Bạn làm đúng <b>${correct}/${total}</b> câu! (${score} điểm)</div>`;
+    if(graded===total){
+        if(correct===total){msg='🎉 '+msg+'<div>✨ Xuất sắc! Bạn giỏi quá đi! ✨</div>';showFB('feedback2','success',msg);fireConfetti();showToast('Task 2 hoàn hảo! +'+score+'đ')}
+        else showFB('feedback2','info',msg+'<div>✅ Đã chấm hết Task 2!</div>');
+        lockTask(2);sCorrect();
+    }else{msg+=`<div style="margin-top:6px;">📝 Còn ${total-graded} câu chưa điền!</div>`;showFB('feedback2','info',msg);sCorrect()}
+}
+
+// ============= TASK 3 =============
+function renderTask3(){
+    const c=document.getElementById('task3-book');c.innerHTML='';
+    task3Data.forEach((item,i)=>{
+        const row=document.createElement('div');row.className='match-item';row.dataset.ans=item.ans;
+        const q=document.createElement('div');q.className='match-q';
+        q.innerHTML=`<span class="icon">${item.icon}</span><b>${i+1}.</b> ${item.q} → nối với ảnh:`;
+        const sel=document.createElement('select');sel.className='match-select';
+        sel.innerHTML='<option value="">-- Chọn --</option>';
+        T3_LETTERS.forEach(l=>{const o=document.createElement('option');o.value=l;o.textContent='Ảnh '+l;sel.appendChild(o)});
+        sel.onchange=function(){if(row.dataset.graded==='true')return;sClick()};
+        row.appendChild(q);row.appendChild(sel);c.appendChild(row);
+    });
+}
+
+function checkTask3(){
+    if(lockedState.task3)return;
+    let newly=0,correct=0,total=task3Data.length;
+    document.querySelectorAll('#task3-book .match-item').forEach(row=>{
+        if(row.dataset.graded==='true'){if(row.dataset.correct==='true')correct++;return}
+        const sel=row.querySelector('.match-select');
+        if(!sel.value)return;
+        const a=row.dataset.ans;sel.disabled=true;
+        if(sel.value===a){sel.classList.add('correct');row.dataset.correct='true';correct++}
+        else{sel.classList.add('incorrect');row.dataset.correct='false';
+            const has=Array.from(sel.options).some(o=>o.value===a);
+            if(!has){const o=document.createElement('option');o.value=a;o.textContent='✓ Ảnh '+a+' (đáp án đúng)';o.style.color='#1B5E20';o.style.fontWeight='900';sel.appendChild(o)}
+        }
+        row.dataset.graded='true';newly++;
+    });
+    if(newly===0){showFB('feedback3','error','🌸 Bạn chưa chọn đáp án nào. Hãy chọn ít nhất 1 câu rồi kiểm tra nhé!');sWrong();return}
+    const score=correct*5;taskScores.task3=score;updateTotalScore();
+    const graded=document.querySelectorAll('#task3-book .match-item[data-graded="true"]').length;
+    let msg=`<div>🎯 Bạn nối đúng <b>${correct}/${total}</b> cặp! (${score} điểm)</div>`;
+    if(graded===total){
+        if(correct===total){msg='🎉 '+msg+'<div>✨ Xuất sắc! Bạn giỏi quá đi! ✨</div>';showFB('feedback3','success',msg);fireConfetti();showToast('Task 3 hoàn hảo! +'+score+'đ')}
+        else showFB('feedback3','info',msg+'<div>✅ Đã chấm hết Task 3!</div>');
+        lockTask(3);sCorrect();
+    }else{msg+=`<div style="margin-top:6px;">📝 Còn ${total-graded} câu chưa làm!</div>`;showFB('feedback3','info',msg);sCorrect()}
+}
+
+// ============= TASK 4 =============
+function renderTask4(){
+    const c=document.getElementById('task4-book');c.innerHTML='';
+    task4Data.forEach((item,i)=>{
+        const note=document.createElement('div');
+        note.className='sticky-note';
+        note.dataset.ans=item.ans;
+        // Image slot
+        const imgSlot=document.createElement('div');
+        imgSlot.className='image-slot';
+        imgSlot.innerHTML=`<div class="ic">🖼️</div><div>Picture ${item.pic} (ảnh sẽ được thêm sau)</div>`;
+        note.appendChild(imgSlot);
+        // Question
+        const q=document.createElement('div');
+        q.className='q-text';
+        q.innerHTML=`<span class="q-num">${i+1}.</span><span>${item.q}</span>`;
+        note.appendChild(q);
+        // Options
+        const opts=document.createElement('div');opts.className='options';
+        item.opts.forEach(opt=>{
+            const btn=document.createElement('button');
+            btn.className='option-btn';
+            btn.textContent=opt;
+            btn.dataset.val=opt;
+            btn.onclick=function(){
+                if(note.dataset.graded==='true')return;
+                opts.querySelectorAll('.option-btn').forEach(x=>x.classList.remove('selected'));
+                this.classList.add('selected');
+                sClick();
+            };
+            opts.appendChild(btn);
+        });
+        note.appendChild(opts);c.appendChild(note);
+    });
+}
+
+function checkTask4(){
+    if(lockedState.task4)return;
+    let newly=0,correct=0,total=task4Data.length;
+    document.querySelectorAll('#task4-book .sticky-note').forEach((note,i)=>{
+        if(note.dataset.graded==='true'){if(note.dataset.correct==='true')correct++;return}
+        const sel=note.querySelector('.option-btn.selected');
+        if(!sel)return;
+        const a=note.dataset.ans;sel.classList.remove('selected');
+        if(sel.dataset.val===a){sel.classList.add('correct');note.dataset.correct='true';note.classList.add('correct');correct++}
+        else{sel.classList.add('incorrect');note.dataset.correct='false';note.classList.add('incorrect');note.querySelectorAll('.option-btn').forEach(x=>{if(x.dataset.val===a)x.classList.add('correct')})}
+        note.dataset.graded='true';newly++;
+    });
+    if(newly===0){showFB('feedback4','error','🌸 Bạn chưa chọn đáp án nào. Hãy chọn ít nhất 1 câu rồi kiểm tra nhé!');sWrong();return}
+    const score=correct*7;taskScores.task4=score;updateTotalScore();
+    const graded=document.querySelectorAll('#task4-book .sticky-note[data-graded="true"]').length;
+    let msg=`<div>🎯 Bạn làm đúng <b>${correct}/${total}</b> câu! (${score} điểm)</div>`;
+    if(graded===total){
+        if(correct===total){msg='🎉 '+msg+'<div>✨ Xuất sắc! Bạn giỏi quá đi! ✨</div>';showFB('feedback4','success',msg);fireConfetti();showToast('Task 4 hoàn hảo! +'+score+'đ')}
+        else showFB('feedback4','info',msg+'<div>✅ Đã chấm hết Task 4!</div>');
+        lockTask(4);sCorrect();
+    }else{msg+=`<div style="margin-top:6px;">📝 Còn ${total-graded} câu chưa làm!</div>`;showFB('feedback4','info',msg);sCorrect()}
+}
+
+// ============= EVALUATION =============
+function showEvaluation(){
+    const total=getTotalScore();const max=117;const pct=(total/max)*100;const tenPoint=(total/max*10).toFixed(1);
+    let evalText,evalEmoji,grade;
+    if(pct>=90){evalText='Xuất sắc! Bạn là ngôi sao nhỏ của lớp! 🌟';evalEmoji='🌟';grade='A+'}
+    else if(pct>=80){evalText='Rất tốt! Bạn nắm bài rất vững!';evalEmoji='🎉';grade='A'}
+    else if(pct>=65){evalText='Khá tốt! Cố gắng thêm chút nữa nhé!';evalEmoji='💖';grade='B+'}
+    else if(pct>=50){evalText='Trung bình! Ôn lại vài chỗ là ổn!';evalEmoji='🌷';grade='B'}
+    else{evalText='Cần cố gắng thêm! Xem lại bài nhé!';evalEmoji='💪';grade='C'}
+    const ev=document.getElementById('evaluation');
+    ev.innerHTML=`
+        <div class="eval-emoji">${evalEmoji}</div>
+        <div class="eval-title">Kết quả học tập của Uyển Nhi</div>
+        <div class="eval-score">💎 Tổng điểm: <b>${total} / ${max}</b></div>
+        <div class="eval-score">📊 Tỉ lệ: <b>${pct.toFixed(1)}%</b></div>
+        <div class="eval-grade">${tenPoint} / 10</div>
+        <div class="eval-message">${evalText}</div>
+        <div class="eval-breakdown">
+            📖 Bài đọc: ${taskScores.task1} / 20 điểm<br>
+            ✏️ Điền từ: ${taskScores.task2} / 25 điểm<br>
+            🔗 Nối cặp: ${taskScores.task3} / 30 điểm<br>
+            🗣️ Luyện nói: ${taskScores.task4} / 42 điểm
+        </div>
+    `;
+    ev.classList.add('show');ev.scrollIntoView({behavior:'smooth'});
+    if(pct>=80){fireConfetti();showToast('Xuất sắc! Bạn đạt '+tenPoint+'/10 🌸')}
+}
+
+// ============= INIT =============
+window.onload=()=>{
+    renderAll();
+    updateTotalScore();
+    setTimeout(()=>{fireConfetti();sAchieve()},800);
+};
+</script>
+</body>
+</html>
